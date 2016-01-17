@@ -1,6 +1,6 @@
-import {UPDATE_MESSAGE, ADD_MESSAGE} from 'actions/message-actions';
+import {UPDATE_MESSAGE, ADD_MESSAGE} from 'actions/message-actions'
 
-export default function(initialState) {
+export default function (initialState) {
   return (state=initialState, action) => {
     switch(action.type) {
       case UPDATE_MESSAGE:

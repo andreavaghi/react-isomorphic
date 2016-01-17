@@ -6,22 +6,21 @@ class MessageEntryBox extends Component {
       <div className='message-entry-box'>
         <textarea
           name='message'
-          placeholder='Enter a message...'
           value={this.props.value}
           onChange={this.handleChange.bind(this)}
-          onKeyPress={this.handleKeyPress.bind(this)} />
+          onKeyPress={this.handleKeyPress.bind(this)}/>
       </div>
     );
   }
 
-  handleChange(e) {
-    this.props.onChange(e.target.value);
+  handleChange(ev) {
+    this.props.onChange(ev.target.value);
   }
 
-  handleKeyPress(e) {
-    if(e.which === 13) {
+  handleKeyPress(ev) {
+    if (ev.which === 13) {
       this.props.onSubmit();
-      e.preventDefault();
+      ev.preventDefault();
     }
   }
 }

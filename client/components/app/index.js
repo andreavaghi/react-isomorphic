@@ -24,7 +24,7 @@ function mapStateToProps(state) {
   return {
     messages: state.messages,
     currentMessage: state.currentMessage
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
