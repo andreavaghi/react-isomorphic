@@ -8,7 +8,7 @@ export const DIST_DIR = path.resolve(__dirname, 'dist');
 export const babelLoader = {
   test: /\.js$/,
   include: CLIENT_DIR,
-  loader: 'babel-loader'
+  loader: 'babel-loader',
 };
 
 export const cssLoader = {
@@ -20,7 +20,7 @@ export const aliases = {
   components: path.resolve(CLIENT_DIR, 'components'),
   reducers: path.resolve(CLIENT_DIR, 'reducers'),
   actions: path.resolve(CLIENT_DIR, 'actions')
-}
+};
 
 export const client = {
   name: 'client',
