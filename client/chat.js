@@ -19,6 +19,10 @@ export function chatMiddleware(store) {
 export default function (store) {
   socket = io.connect(`${location.protocol}//${location.host}`);
 
+  socket.on('start', data => {
+    store.dispatch(actions.setUserId(data.userId));
+  })
+
   socket.on('message', data => {
     store.dispatch(actions.addResponse(data));
   });

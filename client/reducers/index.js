@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {UPDATE_MESSAGE, ADD_MESSAGE, ADD_RESPONSE} from 'actions/message-actions'
+import {UPDATE_MESSAGE, ADD_MESSAGE, ADD_RESPONSE, SET_USER_ID} from 'actions/message-actions'
 
 export default function (initialState) {
   function messages(currentMessages=initialState.messages, action) {
@@ -27,5 +27,13 @@ export default function (initialState) {
     }
   }
 
-  return combineReducers({currentMessage, messages});
+  function userId(currentUserId=initialState.userId, action) {
+    if (action.type === SET_USER_ID) {
+      return action.userId;
+    }
+
+    return currentUserId;
+  }
+
+  return combineReducers({userId, currentMessage, messages});
 }
