@@ -5,14 +5,11 @@ var socket = null;
 
 export function chatMiddleware(store) {
   return next => action => {
-    const result = next(action);
-
     if (socket && action.type === actions.ADD_MESSAGE) {
-      let messages = store.getState().messages;
-      socket.emit('message', messages[messages.length -1]);
+      socket.emit('message', action.message);
     }
 
-    return result;
+    return next(action);
   };
 }
 

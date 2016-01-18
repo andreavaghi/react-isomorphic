@@ -3,9 +3,13 @@ import io from 'socket.io';
 export default function (server) {
   const socketServer = io(server);
   const connections = [];
+  var userId = 0;
 
   socketServer.on('connection', socket => {
     connections.push(socket);
+    userId++;
+
+    socket.emit('start', {userId});
 
     socket.on('message', data => {
       connections.forEach(connectedSocket => {

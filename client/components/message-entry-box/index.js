@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {} from './style.scss';
 
 class MessageEntryBox extends Component {
   render() {
@@ -23,7 +24,10 @@ class MessageEntryBox extends Component {
       const trimmedMessage = this.props.value.trim();
 
       if (trimmedMessage) {
-        this.props.onSubmit(trimmedMessage);
+        this.props.onSubmit({
+          text: trimmedMessage,
+          userId: this.props.userId
+        });
       }
 
       ev.preventDefault();
