@@ -1,6 +1,6 @@
 import io from 'socket.io';
 
-export default function(server) {
+export default function (server) {
   const socketServer = io(server);
   const connections = [];
 
@@ -9,7 +9,7 @@ export default function(server) {
 
     socket.on('message', data => {
       connections.forEach(connectedSocket => {
-        if(connectedSocket !== socket) {
+        if (connectedSocket !== socket) {
           connectedSocket.emit('message', data);
         }
       });

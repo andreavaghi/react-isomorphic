@@ -6,7 +6,7 @@ class MessageEntryBox extends Component {
       <div className='message-entry-box'>
         <textarea
           name='message'
-          placeholder='Enter a message...'
+          placeholder='Enter a message'
           value={this.props.value}
           onChange={this.handleChange.bind(this)}
           onKeyPress={this.handleKeyPress.bind(this)}/>
@@ -22,7 +22,7 @@ class MessageEntryBox extends Component {
     if (ev.which === 13) {
       const trimmedMessage = this.props.value.trim();
 
-      if(trimmedMessage) {
+      if (trimmedMessage) {
         this.props.onSubmit(trimmedMessage);
       }
 
