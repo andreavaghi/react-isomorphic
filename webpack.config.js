@@ -20,6 +20,12 @@ const loaders = [
   }
 ];
 
+const aliases = {
+  components: path.resolve(CLIENT_DIR, 'components'),
+  actions: path.resolve(CLIENT_DIR, 'actions'),
+  reducers: path.resolve(CLIENT_DIR, 'reducers')
+}
+
 module.exports = [{
   name: 'client',
   target: 'web',
@@ -33,9 +39,7 @@ module.exports = [{
     loaders: loaders
   },
   resolve: {
-    alias: {
-      components: path.resolve(CLIENT_DIR, 'components')
-    }
+    alias: aliases
   },
   plugins: [
     new ExtractTextPlugin('bundle.css', {allChunks: true})
@@ -58,9 +62,7 @@ module.exports = [{
     loaders: loaders
   },
   resolve: {
-    alias: {
-      components: path.resolve(CLIENT_DIR, 'components')
-    }
+    alias: aliases
   },
   plugins: [
     new ExtractTextPlugin('[name].css')
