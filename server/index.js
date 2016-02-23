@@ -11,9 +11,11 @@ const app = express();
 
 app.engine('.hbs', handlebars({
   defaultLayout: 'main',
-  extname: '.hbs'
+  extname: '.hbs',
+  layoutsDir: path.resolve(__dirname, 'views/layouts')
 }));
 app.set('view engine', '.hbs');
+app.set('views', path.resolve(__dirname, 'views'));
 
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
@@ -34,4 +36,4 @@ app.get('/', (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log('server running'));
+export default app;
